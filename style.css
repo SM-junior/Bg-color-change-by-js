@@ -3,13 +3,13 @@
     margin-top: 200px;
     padding: 80px;
 }
-button{
+#button{
     padding: 5px 10px;
     font-weight: bold;
     font-size: 15px;
     width: 150px;
 }
-button:hover{
+#button:hover{
     color: white;
     background-color: black;
 }
