@@ -24,3 +24,42 @@
 #copy:hover{
     transform: scale(1.1);
 }
+.toast-message{
+    position: fixed;
+    z-index: 999;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background-color: rgb(1, 1, 1);
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.toast-message-slide-in{
+    animation: toast-animation-in 0.2s ease-in;
+}
+.toast-message-slide-out{
+    animation: toast-animation-out 0.2s ease-in;
+}
+
+@keyframes toast-animation-in{
+    from{
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes toast-animation-out{
+    from{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(200px);
+        opacity: 0;
+    }
+}

@@ -21,17 +21,27 @@
 
 // change background hexa color and generate hexa code............
 
+let div=null;
+
 function changeColor(){
     const button=document.getElementById('button');
     const body=document.getElementById('body');
     const hexa=document.getElementById('hexa');
     const copy=document.getElementById('copy');
+    
     button.addEventListener('click',function(){
         body.style.backgroundColor=rgb();
         hexa.value=rgb();
     });
     copy.addEventListener('click', function(){
         navigator.clipboard.writeText(hexa.value);
+
+        if(div != null){
+            div.remove();
+            div=null;
+        }
+
+        generateToastMessage(`${hexa.value} copied`)
     })
 
     }
@@ -45,3 +55,22 @@ function changeColor(){
         changeColor();
     }
     
+    function generateToastMessage(msg){
+        div=document.createElement('div');
+        div.innerText=msg;
+        div.className='toast-message toast-message-slide-in';
+
+        div.addEventListener('click',function(){
+            div.classList.remove('#toast-message-slide-in');
+            div.classList.add('#toast-message-slide-out');
+
+        div.addEventListener('animationend', function(){
+            div.remove();
+            dov=null;
+        });
+        });
+
+        
+
+        document.body.appendChild(div);
+    }
